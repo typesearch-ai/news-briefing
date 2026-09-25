@@ -4,7 +4,7 @@
 comes from.** An open-source demo of [typesearch](https://typesearch.ai), the news search API for AI
 agents, and the [Vercel AI SDK](https://ai-sdk.dev).
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Ftypesearch%2Fnews-briefing&env=TYPESEARCH_API_KEY&envDescription=Your%20typesearch%20API%20key.%20The%20model%20runs%20on%20the%20Vercel%20AI%20Gateway%20with%20no%20extra%20key.&envLink=https%3A%2F%2Fapp.typesearch.ai&project-name=news-briefing&repository-name=news-briefing)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Ftypesearch-ai%2Fnews-briefing&env=TYPESEARCH_API_KEY&envDescription=Your%20typesearch%20API%20key.%20The%20model%20runs%20on%20the%20Vercel%20AI%20Gateway%20with%20no%20extra%20key.&envLink=https%3A%2F%2Fapp.typesearch.ai&project-name=news-briefing&repository-name=news-briefing)
 
 ![Picking United States, English and Technology: typesearch finds the articles and the model writes six stories, each sentence with a numbered citation](docs/demo.gif)
 
@@ -17,7 +17,7 @@ agents, and the [Vercel AI SDK](https://ai-sdk.dev).
 
    ```ts
    const res = await ts.search('technology', {
-     mode: 'fast',        // headlines and standfirsts: enough for a briefing, and the cheapest mode
+     mode: 'fast',        // headlines and standfirsts: enough for a briefing, in about a second
      days: 1,
      countries: ['US'],
      languages: ['en'],
