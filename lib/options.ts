@@ -1,7 +1,7 @@
 /*
- * What the form offers: topics (with the query to send in each language), languages, time windows
- * and the default language of each country. Countries and languages with coverage come from
- * GET /v1/sources at runtime (lib/coverage.ts); these are only the labels and defaults.
+ * What the form offers: topics (with the query to send in each language), countries, languages, time
+ * windows and the default language of each country. The API filters by any ISO code: a country or a
+ * language with little news gives the empty state, which suggests a wider search.
  */
 
 export type LanguageCode = string; // ISO 639-1
@@ -93,6 +93,12 @@ const MAIN_LANGUAGE: Record<string, LanguageCode> = {
   NL: 'nl', PL: 'pl', SE: 'sv', NO: 'no', DK: 'da', FI: 'fi', CZ: 'cs', GR: 'el', TR: 'tr', RO: 'ro', HU: 'hu', UA: 'uk',
   RU: 'ru', JP: 'ja', KR: 'ko', CN: 'zh', TW: 'zh', IL: 'he', SA: 'ar', AE: 'ar', EG: 'ar', ID: 'id', VN: 'vi', TH: 'th',
 };
+
+/** The countries the form offers: those with a default language above. */
+export const COUNTRIES: CountryCode[] = Object.keys(MAIN_LANGUAGE);
+
+/** The languages the form offers: the ones with topic translations first, then the rest. */
+export const LANGUAGES: LanguageCode[] = [...new Set<LanguageCode>([...TRANSLATED, ...Object.values(MAIN_LANGUAGE)])];
 
 export function mainLanguage(country: CountryCode | null): LanguageCode {
   return (country && MAIN_LANGUAGE[country]) || 'en';

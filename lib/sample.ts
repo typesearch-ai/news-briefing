@@ -3,7 +3,7 @@
  * reserved .example domain and the companies are made-up names. It is shaped exactly like the API's
  * responses (test/contract.test.ts validates it against the OpenAPI document).
  */
-import type { SearchResponse, Sources, Usage } from 'typesearch-js';
+import type { SearchResponse, Usage } from 'typesearch-js';
 import type { GeoResult } from './types.ts';
 
 const minutesAgo = (now: number, m: number) => new Date(now - m * 60_000).toISOString().replace(/\.\d{3}Z$/, '.000Z');
@@ -154,7 +154,7 @@ export function sampleSearch(query: string, mode: SearchResponse['mode'], now = 
     reference: null,
     temporal: null,
     site: null,
-    index: { sources: 4, articles: 1200, updated_at: minutesAgo(now, 3) },
+    index: null,
     usage: {
       tokens: 2310,
       calls: 2,
@@ -185,31 +185,6 @@ export const SAMPLE_USAGE: Usage = {
   last_30_days: { requests: 240, tokens: 610_000, cost_usd: 0.41 },
   credit: { balance_usd: 4.59, plan: 'payg', spent_this_month_usd: 0.41, monthly_limit_usd: null },
   pricing: PRICING,
-};
-
-export const SAMPLE_SOURCES: Sources = {
-  object: 'sources',
-  updated_at: new Date(0).toISOString(),
-  total: 4,
-  articles: 1200,
-  by_country: [
-    { country: 'US', sources: 4 },
-    { country: 'AR', sources: 3 },
-    { country: 'BR', sources: 2 },
-    { country: 'GB', sources: 2 },
-    { country: 'MX', sources: 2 },
-    { country: 'ES', sources: 1 },
-    { country: 'FR', sources: 1 },
-    { country: 'DE', sources: 1 },
-    { country: null, sources: 1 },
-  ],
-  by_language: [
-    { language: 'en', sources: 6 },
-    { language: 'es', sources: 6 },
-    { language: 'pt', sources: 2 },
-    { language: 'fr', sources: 1 },
-    { language: 'de', sources: 1 },
-  ],
 };
 
 /** What the sample model writes for the sample articles, numbered as selectArticles() numbers them. */

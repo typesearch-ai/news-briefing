@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
-import { emptySearch, PRICING, SAMPLE_SOURCES, SAMPLE_USAGE, sampleSearch } from '../lib/sample.ts';
+import { emptySearch, PRICING, SAMPLE_USAGE, sampleSearch } from '../lib/sample.ts';
 import { assertSchema, openapi } from './contract.ts';
 
 test('the sample data has exactly the shape of the API responses', () => {
@@ -9,7 +9,6 @@ test('the sample data has exactly the shape of the API responses', () => {
     assertSchema('SearchResponse', emptySearch('sports', mode));
   }
   assertSchema('Usage', SAMPLE_USAGE);
-  assertSchema('Sources', SAMPLE_SOURCES);
 });
 
 test('the sample prices are the API list prices (x-pricing in the OpenAPI)', () => {

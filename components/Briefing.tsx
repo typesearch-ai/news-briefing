@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
-import type { FormData } from '@/lib/coverage';
+import type { FormData } from '@/lib/form';
 import { ago, compact, hostOf, seconds, usd } from '@/lib/format';
 import { pieces } from '@/lib/citations';
 import { readNdjson } from '@/lib/ndjson';

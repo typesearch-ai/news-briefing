@@ -5,7 +5,7 @@
  */
 import { simulateReadableStream, type LanguageModel } from 'ai';
 import { MockLanguageModelV4 } from 'ai/test';
-import { emptySearch, SAMPLE_SOURCES, SAMPLE_STORIES, SAMPLE_USAGE, sampleSearch } from './sample.ts';
+import { emptySearch, SAMPLE_STORIES, SAMPLE_USAGE, sampleSearch } from './sample.ts';
 
 const DELAY = { ultra: 600, fast: 900, normal: 1800, deep: 3200 } as const;
 
@@ -25,7 +25,6 @@ export const mockFetch: typeof fetch = async (input, init) => {
   const url = new URL(typeof input === 'string' ? input : input instanceof URL ? input.href : input.url);
   const signal = init?.signal;
   if (url.pathname === '/v1/usage') return json(SAMPLE_USAGE);
-  if (url.pathname === '/v1/sources') return json(SAMPLE_SOURCES);
   if (url.pathname === '/v1/search') {
     const body = JSON.parse(String(init?.body ?? '{}')) as { query: string; mode?: keyof typeof DELAY };
     const mode = body.mode ?? 'normal';

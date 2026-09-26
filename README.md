@@ -92,7 +92,7 @@ you or your team.
 | [`app/api/briefing/route.ts`](app/api/briefing/route.ts) | Streams those events to the page as NDJSON. |
 | [`lib/citations.ts`](lib/citations.ts) | Parses `[n]` citations and drops the ones that point nowhere. |
 | [`lib/model.ts`](lib/model.ts) | The model: AI Gateway, or OpenAI / Anthropic with their own keys. |
-| [`lib/coverage.ts`](lib/coverage.ts) | Countries and languages with coverage (`GET /v1/sources`, aggregate counts) and prices. |
+| [`lib/form.ts`](lib/form.ts) | The countries and languages the form offers, and each mode's price (`GET /v1/usage`). |
 | [`components/Briefing.tsx`](components/Briefing.tsx) | The form and the briefing. |
 
 It uses the [typesearch-js](https://www.npmjs.com/package/typesearch-js) SDK; the same search is one

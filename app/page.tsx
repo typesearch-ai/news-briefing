@@ -1,11 +1,11 @@
 import { Briefing } from '@/components/Briefing';
 import { Setup } from '@/components/Setup';
 import { Footer, Header } from '@/components/ui';
-import { loadFormData } from '@/lib/coverage';
+import { loadFormData } from '@/lib/form';
 import { chooseModel, mockEnabled, modelProblem } from '@/lib/model';
 import { hasApiKey } from '@/lib/typesearch';
 
-// Coverage and prices change slowly: the page is rebuilt at most once an hour.
+// Prices change slowly: the page is rebuilt at most once an hour.
 export const revalidate = 3600;
 
 export default async function Page() {
